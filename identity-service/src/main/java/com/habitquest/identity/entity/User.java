@@ -49,12 +49,11 @@ public class User {
 
     @Enumerated(EnumType.STRING)
     @NotNull
-    @Size(max = 30)
     @ColumnDefault("'USER'")
     @Column(name = "role", nullable = false, length = 30)
     private UserRole userRole;
 
-    @Size(max = 30)
+    @Enumerated(EnumType.STRING)
     @NotNull
     @ColumnDefault("'ACTIVE'")
     @Column(name = "status", nullable = false, length = 30)
