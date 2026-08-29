@@ -1,0 +1,27 @@
+name: habitquest
+
+services:
+  identity_db:
+    image: postgres:16-alpine
+    container_name: habitquest-identity-db
+    restart: unless-stopped
+
+    environment:
+      POSTGRES_DB: identity_db
+      POSTGRES_USER: identity_user
+      POSTGRES_PASSWORD: identity_password
+
+    ports:
+      - "5433:5432"
+
+    volumes:
+      - identity-db-data:/var/lib/postgres/data
+
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U identity_user -d identity_db"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  identity-db-data:
