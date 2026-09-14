@@ -20,7 +20,7 @@ public class SecurityConfig {
                 .authorizeHttpRequests(authorize ->
                         authorize.requestMatchers(HttpMethod.POST, "/api/auth/register").permitAll()
                                 .requestMatchers("/actuator/health").permitAll()
-                                .requestMatchers("/actuator/health/error").permitAll()
+                                .requestMatchers("/error").permitAll()
                                 .anyRequest().authenticated()
                 );
         return http.build();

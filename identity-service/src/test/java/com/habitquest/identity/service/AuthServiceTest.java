@@ -50,7 +50,7 @@ class AuthServiceTest {
     private String normalizedEmail;
 
     @BeforeEach
-    void serUp() {
+    void setUp() {
         request = RegistrationRequest.builder()
                 .email("Test@gmail.com")
                 .password("Password1")
@@ -88,6 +88,7 @@ class AuthServiceTest {
                 () -> assertEquals(request.getEmail(), savedUser.getEmail()),
                 () -> assertEquals(normalizedEmail, savedUser.getNormalizedEmail()),
                 () -> assertNotEquals(request.getPassword(), savedUser.getPasswordHash()),
+                () -> assertEquals(encodedPassword, savedUser.getPasswordHash()),
                 () -> assertEquals(request.getDisplayName(), savedUser.getDisplayName()),
                 () -> assertEquals(UserRole.USER, savedUser.getUserRole()),
                 () -> assertEquals(UserStatus.ACTIVE, savedUser.getUserStatus()),
