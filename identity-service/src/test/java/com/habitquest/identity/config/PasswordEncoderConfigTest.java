@@ -40,7 +40,7 @@ class PasswordEncoderConfigTest {
     }
 
     @Test
-    void passwordEncoderBeanShouldUserBCrypt() {
+    void passwordEncoderBeanShouldUseBCrypt() {
         assertInstanceOf(BCryptPasswordEncoder.class, passwordEncoder);
     }
 
@@ -50,8 +50,8 @@ class PasswordEncoderConfigTest {
         String secondHash = passwordEncoder.encode(rawPassword);
 
         assertNotEquals(firstHash, secondHash);
-        assertTrue(passwordEncoder.matches(rawPassword,firstHash));
-        assertTrue(passwordEncoder.matches(rawPassword,secondHash));
+        assertTrue(passwordEncoder.matches(rawPassword, firstHash));
+        assertTrue(passwordEncoder.matches(rawPassword, secondHash));
     }
 
     @Test
