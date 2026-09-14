@@ -1,7 +1,7 @@
 package com.habitquest.identity.dto;
 
 import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
@@ -18,11 +18,11 @@ import lombok.Setter;
 public class RegistrationRequest {
 
     @Email
-    @NotNull
+    @NotBlank
     @Size(max = 255)
     private String email;
 
-    @NotNull
+    @NotBlank
     @Size(min = 8, max = 72)
     @Pattern(
             regexp = "^(?=.*\\p{L})(?=.*[0-9]).+$",
@@ -30,7 +30,7 @@ public class RegistrationRequest {
     )
     private String password;
 
-    @NotNull
+    @NotBlank
     @Size(min = 2, max = 100)
     private String displayName;
 
