@@ -20,7 +20,7 @@ public class JwtPropertiesBindingTest {
                     .withUserConfiguration(TestConfig.class);
 
     @Test
-    void applicationYamalShouldBindJwtProperties() {
+    void applicationYamlShouldBindJwtProperties() {
         contextRunner
                 .withPropertyValues(
                         "JWT_SECRET=0123456789abcdef0123456789abcdef",
